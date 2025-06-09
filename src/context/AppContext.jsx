@@ -8,6 +8,8 @@ const storedMarkers = JSON.parse(localStorage.getItem("markers")) || [];
 const initialState = {
   markers: storedMarkers,
   map: null,
+  isModalOpen : true,
+  selectedCity : null ,
 };
 
 const appReducer = function (state, action) {
@@ -19,6 +21,13 @@ const appReducer = function (state, action) {
     }
     case "SET_MAP":
       return { ...state, map: action.payload };
+    case "SELECT_CITY":
+      return { ...state, selectedCity: action.payload };
+
+    case "OPEN_MODAL":
+      return { ...state, isModalOpen: true };
+    case "CLOSE_MODAL":
+       return { ...state, isModalOpen: false, selectedCity: null };
     default:
       return state;
   }

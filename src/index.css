@@ -17,7 +17,6 @@ main {
   background-color: violet;
   display: flex;
   flex-direction: column;
-  position: relative;
 }
 
 aside {
@@ -44,4 +43,228 @@ aside {
 }
 .map-icon {
   font-size: 5rem;
+}
+
+.popup-btn {
+  background-color: transparent;
+  border: 1px solid blue;
+  border-radius: 20px;
+  font-size:1rem;
+  padding: 0.5rem;
+  font-weight: 800;
+
+}
+
+.popup-btn:hover {
+  background-color: blue;
+}
+
+
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+/* Main Modal Container */
+.modal-weather {
+  background: #f8f9fa;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  display: flex;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  min-height: 500px;
+}
+
+/* Left Side - Main Weather Display */
+.weather-main {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 320px;
+  flex: 1;
+  position: relative;
+}
+
+.weather-date {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.weather-city {
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 40px;
+  line-height: 1.2;
+}
+
+.weather-icon {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.weather-condition {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  opacity: 0.95;
+}
+
+.weather-temp {
+  text-align: center;
+  font-size: 80px;
+  font-weight: 100;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+/* Right Side - Weather Info Grid */
+.weather-info {
+  background: white;
+  padding: 40px 35px;
+  flex: 1.2;
+  display: flex;
+  align-items: center;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px 40px;
+  width: 100%;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info-label {
+  font-size: 13px;
+  color: #9CA3AF;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  font-size: 22px;
+  color: #374151;
+  font-weight: 600;
+}
+
+/* Modal Footer */
+.modal-footer {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+
+.close-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-weather {
+    flex-direction: column;
+    max-width: 400px;
+    max-height: 85vh;
+  }
+  
+  .weather-main {
+    min-width: auto;
+    padding: 30px 25px;
+  }
+  
+  .weather-temp {
+    font-size: 60px;
+  }
+  
+  .weather-info {
+    padding: 30px 25px;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .modal-footer {
+    position: static;
+    padding: 20px 25px 0;
+    background: white;
+  }
+  
+  .close-btn {
+    background: #667eea;
+    border-color: #667eea;
+    width: 100%;
+  }
+  
+  .close-btn:hover {
+    background: #5a67d8;
+    border-color: #5a67d8;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-overlay {
+    padding: 10px;
+  }
+  
+  .weather-main {
+    padding: 25px 20px;
+  }
+  
+  .weather-city {
+    font-size: 20px;
+  }
+  
+  .weather-temp {
+    font-size: 50px;
+  }
+  
+  .weather-info {
+    padding: 25px 20px;
+  }
 }
