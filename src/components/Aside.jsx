@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import { useAppContext } from "../context/AppContext";
 import { getWeatherData } from "../utils/getWeatherData";
+import toast from "react-hot-toast";
 
 function Aside() {
   const [input, setInput] = useState("");
@@ -44,7 +45,7 @@ function Aside() {
       setInput(""); // Clear input after successful submission
     } catch (error) {
       console.error("Failed to fetch weather data:", error);
-      alert("Invalid location or API error.");
+
     }
   }
 
